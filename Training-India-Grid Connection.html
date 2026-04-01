@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Training Program — CEA Level 1</title>
+  <style>
+    :root {
+      --deep-teal: #0b2b2e;
+      --charcoal: #1b1f24;
+      --neon-teal: #00e3a9;
+      --ice: rgba(255, 255, 255, 0.08);
+      --ice-border: rgba(255, 255, 255, 0.18);
+      --text-main: #f6f8fb;
+      --text-muted: #c8d0d9;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+      --glow: 0 0 18px rgba(0, 227, 169, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-main);
+      background: linear-gradient(140deg, var(--deep-teal) 0%, var(--charcoal) 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35)),
+        url("https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .logo span { color: var(--neon-teal); }
+
+    .title {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 10px 0 6px 0;
+      letter-spacing: 0.6px;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .card {
+      background: var(--ice);
+      border: 1px solid var(--ice-border);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      letter-spacing: 0.6px;
+      text-shadow: var(--glow);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .metric {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .metric:hover { transform: translateY(-4px); box-shadow: var(--glow); }
+
+    .metric .label { color: var(--text-muted); font-size: 14px; }
+    .metric .value { font-size: 18px; font-weight: 600; margin-top: 6px; }
+
+    ul { margin: 0; padding-left: 18px; }
+    li { margin-bottom: 8px; }
+
+    .agenda {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .agenda .day {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .agenda .day h4 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      letter-spacing: 0.4px;
+      color: var(--text-main);
+      text-shadow: var(--glow);
+    }
+
+    .footer-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    .code {
+      background: rgba(12, 18, 28, 0.75);
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+      font-size: 13px;
+      white-space: pre-wrap;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .glow {
+      color: var(--neon-teal);
+      text-shadow: var(--glow);
+    }
+
+    @media (max-width: 680px) {
+      .header { flex-direction: column; align-items: flex-start; }
+    }
+  
+    .level-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .level-list li {
+      margin-bottom: 6px;
+    }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div>
+        <div class="brand">
+          <div class="logo">
+            <svg width="34" height="34" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M32 4l22 8v17c0 14.5-9.3 27.2-22 31-12.7-3.8-22-16.5-22-31V12l22-8z" stroke="#00e3a9" stroke-width="3" fill="rgba(0,227,169,0.1)" />
+              <path d="M20 30l8 8 16-16" stroke="#00e3a9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div>VYSUS <span>GROUP</span></div>
+          </div>
+        </div>
+        <h1 class="title">Training Program — CEA Level 1</h1>
+        <p class="subtitle">Grid Connection-Level Studies (PSSE 36) aligned to CEA Manual on Transmission Planning Criteria (Amendment-I, 2025)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">1. Program Overview</h2>
+      <div class="grid">
+        <div class="metric">
+          <div class="label">Levels</div>
+          <div class="value">
+            <ul class="level-list">
+              <li>Steady State Study</li>
+              <li>Power Quality Study</li>
+              <li>PSS/E Dynamic Study</li>
+              <li>PSCAD Benchmarking Study</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</div>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">Problem Statement</h2>
+      <p>
+        Renewable projects often stall at the interconnection stage due to incomplete or non-compliant transmission
+        planning studies. This training equips engineers to perform PSSE-36 grid connection studies aligned with CEA’s
+        planning philosophy, contingency criteria, and planning procedures introduced in Amendment-I (2025).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">2. Technical Learning Objectives</h2>
+      <ul>
+        <li>Apply the CEA planning philosophy and transmission planning approach to renewable interconnection cases.</li>
+        <li>Build and validate PSSE 36 base cases for grid connection-level studies using CEA-aligned assumptions.</li>
+        <li>Run contingency analysis consistent with CEA criteria and interpret impacts on voltages and loadings.</li>
+        <li>Evaluate substation criteria and additional criteria relevant to renewable integration studies.</li>
+        <li>Follow the CEA planning procedure (Chapter 7) and prepare a concise study summary for submissions.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">3. Technical Stack</h2>
+      <div class="grid">
+        <div class="metric"><div class="label">Languages</div><div class="value">Python (optional for automation)</div></div>
+        <div class="metric"><div class="label">Frameworks / Libraries</div><div class="value">PSSE 36 Python API</div></div>
+        <div class="metric"><div class="label">Tools & Platforms</div><div class="value">PSSE 36, Excel, one-line diagrams (PDF), plotting tool (Matplotlib)</div></div>
+        <div class="metric"><div class="label">Infrastructure / Cloud</div><div class="value">Local workstation (no cloud required)</div></div>
+        <div class="metric"><div class="label">Version Control</div><div class="value">Git (optional)</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">4. Environment Setup</h2>
+      <div class="grid">
+        <div class="metric"><div class="label">OS</div><div class="value">Windows 10/11 (recommended for PSSE 36)</div></div>
+        <div class="metric"><div class="label">Runtime Versions</div><div class="value">PSSE 36 installed; Python matching PSSE 36 distribution (if using API)</div></div>
+        <div class="metric"><div class="label">Hardware</div><div class="value">16 GB RAM minimum, 4-core CPU, 20 GB free disk</div></div>
+      </div>
+      <p class="footer-note">Setup instructions</p>
+      <div class="code">python -c "import psspy; print(psspy.psseversion())"</div>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">5. Day-By-Day Agenda (Mapped to CEA Chapters 1–7)</h2>
+      <div class="agenda">
+        <div class="day">
+          <h4>Day 1 — Chapters 1 & 2</h4>
+          <p>Introduction and planning philosophy: ISTS/Intra-STS context, objectives, and guiding principles.</p>
+        </div>
+        <div class="day">
+          <h4>Day 2 — Chapter 3</h4>
+          <p>Transmission planning workflow: inputs, assumptions, base-case preparation, and PSSE 36 modeling.</p>
+        </div>
+        <div class="day">
+          <h4>Day 3 — Chapter 4</h4>
+          <p>Contingency criteria: selection, N-1/N-1-1 studies, and interpreting post-contingency results.</p>
+        </div>
+        <div class="day">
+          <h4>Day 4 — Chapters 5 & 6</h4>
+          <p>Substation planning criteria and additional criteria with renewable integration focus.</p>
+        </div>
+        <div class="day">
+          <h4>Day 5 — Chapter 7</h4>
+          <p>Formal planning procedure, coordination steps, deliverables, and capstone study summary.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
